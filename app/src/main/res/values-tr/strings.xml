@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gizli Notlarım</string>
+    <string name="enter_your_password">Şifrenizi giriniz</string>
+    <string name="Submit">Onayla</string>
+</resources>
