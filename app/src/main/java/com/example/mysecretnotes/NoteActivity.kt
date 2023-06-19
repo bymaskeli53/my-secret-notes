@@ -12,5 +12,7 @@ class NoteActivity : AppCompatActivity() {
         binding = ActivityNoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
     }
 }
