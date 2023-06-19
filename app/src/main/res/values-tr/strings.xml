@@ -3,4 +3,5 @@
     <string name="app_name">Gizli Notlarım</string>
     <string name="enter_your_password">Şifrenizi giriniz</string>
     <string name="Submit">Onayla</string>
+    <string name="set_password">Uygulamayı kullanmak için bir parola giriniz</string>
 </resources>
