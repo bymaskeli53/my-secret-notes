@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#3639F4</color>
+    <color name="action_bar_color">#0205F1</color>
+    <color name="item_color">#131313</color>
+    <color name="color_title">#A81308</color>
+    <color name="color_note">#4400E2</color>
 </resources>

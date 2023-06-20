@@ -3,10 +3,10 @@ package com.example.mysecretnotes
 
 //import android.hardware.biometrics.BiometricPrompt
 import android.content.Context
+import android.content.Intent
 import android.hardware.fingerprint.FingerprintManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     super.onAuthenticationSucceeded(result)
                     notifyUser("Authentication Succeeded!!")
+                    goToNoteActivity()
 
                 }
 
@@ -90,6 +91,12 @@ class MainActivity : AppCompatActivity() {
 //        }
 
 
+    }
+
+    private fun goToNoteActivity() {
+        val intent = Intent(this@MainActivity , NoteActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     // if you have many toasts in your app you can write a function to make it easier.
@@ -122,7 +129,7 @@ class MainActivity : AppCompatActivity() {
 
             binding.saveButton.setOnClickListener {
                 lifecycleScope.launch {
-                    save("Password" , binding.etPassword.value())
+                    save("Password" , binding.etPassword.value)
                 }
 
             }
@@ -134,8 +141,8 @@ class MainActivity : AppCompatActivity() {
             binding.saveButton.setOnClickListener {
                 lifecycleScope.launch {
                     val value = read("Password")
-                    if (value == binding.etPassword.value()) {
-                        // TODO: Going to second activity  
+                    if (value == binding.etPassword.value) {
+                        goToNoteActivity()
                     }
                 }
             }
