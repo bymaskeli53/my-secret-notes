@@ -7,8 +7,8 @@ import android.view.View
 import androidx.navigation.createGraph
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import com.example.mysecretnotes.databinding.ActivityMainBinding
 import com.example.mysecretnotes.databinding.ActivityNoteBinding
+
 
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -8,4 +8,11 @@
     <string name="title">Başlık</string>
     <string name="notes">Notlar</string>
     <string name="save">Kaydet</string>
+    <string name="auth_failed">Authentication Failed</string>
+    <string name="fingerprint_app">Fingerprint Authentication</string>
+    <string name="require_auth">Fingerprint required.</string>
+    <string name="use_fingerprint">You can use your fingerprint to authenticate</string>
+    <string name="cancel">Cancel</string>
+    <string name="successful_auth">Authentication succeeded</string>
+    <string name="auth_error">Authentication error</string>
 </resources>

@@ -16,4 +16,11 @@
     <string name="title">Title</string>
     <string name="notes">Notes</string>
     <string name="save">Save</string>
+    <string name="auth_failed">Authentication Failed</string>
+    <string name="fingerprint_app">Fingerprint Authentication</string>
+    <string name="require_auth">Fingerprint required.</string>
+    <string name="use_fingerprint">You can use your fingerprint to authenticate</string>
+    <string name="cancel">Cancel</string>
+    <string name="successful_auth">Authentication succeeded</string>
+    <string name="auth_error">Authentication error</string>
 </resources>

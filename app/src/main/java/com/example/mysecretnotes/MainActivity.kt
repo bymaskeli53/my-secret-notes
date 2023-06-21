@@ -17,6 +17,7 @@ import androidx.datastore.preferences.core.preferencesKey
 import androidx.datastore.preferences.createDataStore
 import androidx.lifecycle.lifecycleScope
 import com.example.mysecretnotes.databinding.ActivityMainBinding
+//import com.example.mysecretnotes.databinding.ActivityMainBinding
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         checkFirstRun()
 
 
-        dataStore = createDataStore(name = "password")
+        dataStore = createDataStore(name = DATASTORE_NAME)
 
 
 //        if (hasFingerprintHardware()) {
@@ -56,21 +57,21 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onAuthenticationError(errorCode: Int , errString: CharSequence) {
                     super.onAuthenticationError(errorCode , errString)
-                    notifyUser("Authentication error $errString")
+                    notifyUser(getString(R.string.auth_error))
                 }
 
                 override fun onAuthenticationSucceeded(
                     result: BiometricPrompt.AuthenticationResult
                 ) {
                     super.onAuthenticationSucceeded(result)
-                    notifyUser("Authentication Succeeded!!")
+                    notifyUser(getString(R.string.successful_auth))
                     goToNoteActivity()
 
                 }
 
                 override fun onAuthenticationFailed() {
                     super.onAuthenticationFailed()
-                    notifyUser("Authentication Failed")
+                    notifyUser(getString(R.string.auth_failed))
                 }
 
             })
@@ -78,17 +79,14 @@ class MainActivity : AppCompatActivity() {
 
 
         promptInfo = BiometricPrompt.PromptInfo.Builder()
-            .setTitle("Fingerprint App")
-            .setSubtitle("Authentication is required")
-            .setDescription("You can use your fingerprint to authenticate")
-            .setNegativeButtonText("Cancel")
+            .setTitle(getString(R.string.fingerprint_app))
+            .setSubtitle(getString(R.string.require_auth))
+            .setDescription(getString(R.string.use_fingerprint))
+            .setNegativeButtonText(getString(R.string.cancel))
             .build()
 
         biometricPrompt.authenticate(promptInfo)
-//        buttonShowWelcome.setOnClickListener {
-//            biometricPrompt.authenticate(promptInfo)
-//            buttonShowWelcome.visibility = View.INVISIBLE
-//        }
+
 
 
     }
@@ -104,11 +102,11 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this , message , Toast.LENGTH_LONG).show()
     }
 
-    private fun hasFingerprintHardware(): Boolean {
-        // Check if the device has a fingerprint sensor
-        fingerprintManager = getSystemService(Context.FINGERPRINT_SERVICE) as FingerprintManager
-        return fingerprintManager.isHardwareDetected
-    }
+//    private fun hasFingerprintHardware(): Boolean {
+//        // Check if the device has a fingerprint sensor
+//        fingerprintManager = getSystemService(Context.FINGERPRINT_SERVICE) as FingerprintManager
+//        return fingerprintManager.isHardwareDetected
+//    }
 
 //    private fun hasFingerprintPermission(): Boolean {
 //        // Check if the app has the required permission to use fingerprint
@@ -133,7 +131,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
-            getSharedPreferences("PREFERENCE" , MODE_PRIVATE)
+            getSharedPreferences(SHARED_PREFERENCE_NAME , MODE_PRIVATE)
                 .edit()
                 .putBoolean("isFirstRun" , false)
                 .apply()
