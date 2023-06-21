@@ -141,6 +141,8 @@ class MainActivity : AppCompatActivity() {
                     val value = read("Password")
                     if (value == binding.etPassword.value) {
                         goToNoteActivity()
+                    } else {
+                        Toast.makeText(this@MainActivity,getString(R.string.wrong_password),Toast.LENGTH_LONG).show()
                     }
                 }
             }
