@@ -1,8 +1,5 @@
 package com.example.mysecretnotes
 
-import androidx.room.Query
-import com.example.mysecretnotes.Note
-import com.example.mysecretnotes.NoteDao
 import javax.inject.Inject
 
 
@@ -19,6 +16,8 @@ class NoteRepository @Inject constructor(
     suspend fun getAllNotesFromRoom() : List<Note> = dao.getAllNotes()
 
     suspend fun getNumberOfNotesFromRoom(): Int = dao.numberOfItemsInDb()
+
+    suspend fun deleteNoteFromRoomById(id: Int) = dao.deleteNoteById(id)
 
 
 

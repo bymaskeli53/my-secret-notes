@@ -57,7 +57,7 @@ class NoteListFragment : Fragment(R.layout.fragment_list_notes) {
             val adapter = NoteAdapter(noteList)
             binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
 
-            // To divide between items
+            // To divide between items in recycler view
             binding.recyclerview.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
             binding.recyclerview.adapter = adapter
 
@@ -65,8 +65,16 @@ class NoteListFragment : Fragment(R.layout.fragment_list_notes) {
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     val position = viewHolder.adapterPosition
                     val mutableNoteList = noteList.toMutableList()
+
+                    lifecycleScope.launch {
+                        mutableNoteList[position].id?.let { viewModel.deleteNoteFromRoomById(it) }
+
+                    }
+
                     mutableNoteList.removeAt(position)
                     binding.recyclerview.adapter?.notifyItemRemoved(position)
+                    binding.recyclerview.adapter?.notifyDataSetChanged()
+
 
 
 

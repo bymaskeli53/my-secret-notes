@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var executor: Executor
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
-    private lateinit var fingerprintManager: FingerprintManager
+   // private lateinit var fingerprintManager: FingerprintManager
 
     private lateinit var binding: ActivityMainBinding
 
@@ -129,6 +129,7 @@ class MainActivity : AppCompatActivity() {
                 lifecycleScope.launch {
                     save("Password" , binding.etPassword.value)
                 }
+                goToNoteActivity()
 
             }
             getSharedPreferences(SHARED_PREFERENCE_NAME , MODE_PRIVATE)

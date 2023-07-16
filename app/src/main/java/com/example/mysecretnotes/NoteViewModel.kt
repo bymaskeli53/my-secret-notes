@@ -20,6 +20,8 @@ class NoteViewModel @Inject constructor(
 
     suspend fun getNumberOfNotesFromRoom(): Int = repository.getNumberOfNotesFromRoom()
 
+    suspend fun deleteNoteFromRoomById(id: Int) = repository.deleteNoteFromRoomById(id)
+
     fun convertLongToTime(time: Long): String {
         val date = Date(time)
         val format = SimpleDateFormat("MM.dd.yyyy HH:mm")

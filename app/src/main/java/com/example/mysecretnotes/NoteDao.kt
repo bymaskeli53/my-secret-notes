@@ -1,9 +1,6 @@
 package com.example.mysecretnotes
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 
 @Dao
@@ -19,4 +16,7 @@ interface NoteDao {
     // If we need to check how many notes do we have in db
     @Query("SELECT COUNT(id) FROM NOTES")
     suspend fun numberOfItemsInDb(): Int
+
+    @Query("DELETE FROM Notes WHERE id = :noteId")
+    suspend fun deleteNoteById(noteId: Int)
 }
